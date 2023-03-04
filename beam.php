@@ -13,7 +13,11 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
   if ($locator == "searchBeam") {
     $BSx = $_POST['data'];
 
-    $sql = "SELECT * FROM `beam_aisc` WHERE `Sx` > " . $BSx . " AND `Type` = 'w' ORDER BY `Sx` ASC LIMIT 3";
+    $sql = " SELECT * FROM
+            (SELECT * FROM `beam_aisc` WHERE `Sx` > " . $BSx . " AND `Type` = 'w' ORDER BY `Sx` ASC LIMIT 4) b 
+             ORDER BY `ID` ASC  LIMIT 3";
+
+
     $result = mysqli_query($conn, $sql) or die("Error in Selecting " . mysqli_error($connection));
 
     while ($row = mysqli_fetch_assoc($result)) {
@@ -206,7 +210,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                     <h2 class="accordion-header" id="headingThree">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Show other result
+                        SX
                       </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
@@ -214,7 +218,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                       <div class="accordion-body">
                         <div class="row">
                           <div class="col">
-                            <h5>Other Results:</h5>
+                            <h5>Getting Sx:</h5>
                           </div>
                         </div>
                         <div class="row">
@@ -262,12 +266,25 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                             </div>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item border-0">
+                    <h2 class="accordion-header" id="heading2">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                        Trial Section
+                      </button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                      data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
                         <div class="row">
                           <!-- Check 1 -->
                           <div class="col">
                             <div class="row">
                               <div class="col">
-                                <h5>Test 1</h5>
+                                <h5>Trial A</h5>
                               </div>
                             </div>
                             <div class="row">
@@ -278,12 +295,92 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                                 </div>
                               </div>
                             </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">D</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bd1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">tw</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Btw1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">Bf</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bbf1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">tf</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Btf1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">Sx</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="BTsx1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">k1</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bk11">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">Zx</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bzx1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">ry</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bry1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">J</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bj1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">Iy</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Biy1">
+                                </div>
+                              </div>
+                            </div>
                           </div>
                           <!-- Check 2 -->
                           <div class="col">
                             <div class="row">
                               <div class="col">
-                                <h5>Test 2</h5>
+                                <h5>Trial B</h5>
                               </div>
                             </div>
                             <div class="row">
@@ -294,12 +391,92 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                                 </div>
                               </div>
                             </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">D</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bd2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">tw</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Btw2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">Bf</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bbf2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">tf</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Btf2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">Sx</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="BTsx2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">k1</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bk12">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">Zx</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bzx2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">ry</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bry2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">J</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bj2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">Iy</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Biy2">
+                                </div>
+                              </div>
+                            </div>
                           </div>
                           <!-- Check 3 -->
                           <div class="col">
                             <div class="row">
                               <div class="col">
-                                <h5>Test 3</h5>
+                                <h5>Trial C</h5>
                               </div>
                             </div>
                             <div class="row">
@@ -307,6 +484,233 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                                 <label for="">EDI</label>
                                 <div class="input-group mb-3">
                                   <input type="text" class="form-control" readonly id="BEdi3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">D</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bd3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">tw</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Btw3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">Bf</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bbf3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">tf</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Btf3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">Sx</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="BTsx3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">k1</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bk13">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">Zx</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bzx3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">ry</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bry3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">J</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Bj3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">Iy</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="Biy3">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item border-0">
+                    <h2 class="accordion-header" id="heading3">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                        Trial Section Solution
+                      </button>
+                    </h2>
+                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                      data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <div class="row">
+                          <div class="col">
+                            <div class="row">
+                              <div class="col">
+                                <h5 class="font-weight-light">For Flange:</h5>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">λp</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="LambFlangeP1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">λr</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="LambFlangeR1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <h5 class="font-weight-light">For Web:</h5>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">λp</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="LambWebP1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">λr</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="LambWebR1">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="row">
+                              <div class="col">
+                                <h5 class="font-weight-light">For Flange:</h5>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">λp</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="LambFlangeP2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">λr</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="LambFlangeR2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <h5 class="font-weight-light">For Web:</h5>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">λp</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="LambWebP2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">λr</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="LambWebR2">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="row">
+                              <div class="col">
+                                <h5 class="font-weight-light">For Flange:</h5>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">λp</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="LambFlangeP3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">λr</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="LambFlangeR3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <h5 class="font-weight-light">For Web:</h5>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">λp</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="LambWebP3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">λr</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="LambWebR3">
                                 </div>
                               </div>
                             </div>
@@ -404,9 +808,56 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
         success: function (result) {
           console.log(result);
           // Fetching EDI
+
           $('#BEdi1').val(result[0]["EDI_Std_Nomenclature"]);
           $('#BEdi2').val(result[1]["EDI_Std_Nomenclature"]);
           $('#BEdi3').val(result[2]["EDI_Std_Nomenclature"]);
+          // Bd1
+          $('#Bd1').val(result[0]["d"]);
+          $('#Bd2').val(result[1]["d"]);
+          $('#Bd3').val(result[2]["d"]);
+          // Btw1
+          $('#Btw1').val(result[0]["tw"]);
+          $('#Btw2').val(result[1]["tw"]);
+          $('#Btw3').val(result[2]["tw"]);
+          // Bbf1
+          $('#Bbf1').val(result[0]["bf"]);
+          $('#Bbf2').val(result[1]["bf"]);
+          $('#Bbf3').val(result[2]["bf"]);
+          // Btf1
+          $('#Btf1').val(result[0]["tf"]);
+          $('#Btf2').val(result[1]["tf"]);
+          $('#Btf3').val(result[2]["tf"]);
+          // BTsx1
+          $('#BTsx1').val(result[0]["Sx"]);
+          $('#BTsx2').val(result[1]["Sx"]);
+          $('#BTsx3').val(result[2]["Sx"]);
+          // Bk11
+          $('#Bk11').val(result[0]["k1"]);
+          $('#Bk12').val(result[1]["k1"]);
+          $('#Bk13').val(result[2]["k1"]);
+          // Bzx1
+          $('#Bzx1').val(result[0]["Zx"]);
+          $('#Bzx2').val(result[1]["Zx"]);
+          $('#Bzx3').val(result[2]["Zx"]);
+          // Bry1
+          $('#Bry1').val(result[0]["ry"]);
+          $('#Bry2').val(result[1]["ry"]);
+          $('#Bry3').val(result[2]["ry"]);
+          // Bj1
+          $('#Bj1').val(result[0]["j"]);
+          $('#Bj2').val(result[1]["j"]);
+          $('#Bj3').val(result[2]["j"]);
+          // Biy1
+          $('#Biy1').val(result[0]["iy"]);
+          $('#Biy2').val(result[1]["iy"]);
+          $('#Biy3').val(result[2]["iy"]);
+
+
+          // LambFlangeP1
+          // LambFlangeR1
+          // LambWebP1
+          // LambWebR1
         }
       });
     }
