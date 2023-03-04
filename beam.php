@@ -73,7 +73,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
             </li>
           </ul>
           <!-- ============================================================== -->
-          <!-- Right side toggle and nav items -->
+          <!-- Right side toggle and nav items afdsa-->
           <!-- ============================================================== -->
           <ul class="navbar-nav float-end">
             <!-- ============================================================== -->
