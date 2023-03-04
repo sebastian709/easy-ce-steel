@@ -676,6 +676,42 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                                 </div>
                               </div>
                             </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">@Yielding</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtYielding1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">@Check Resisting Moment</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtResisting1">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtResistingComp1">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtResistingAns1">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">@Bending Moment Capacity</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtBending1">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtBendingComp1">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtBendingAns1">
+                                </div>
+                              </div>
+                            </div>
                           </div>
                           <div class="col">
                             <div class="row">
@@ -711,6 +747,42 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                                 </div>
                               </div>
                             </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">@Yielding</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtYielding2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">@Check Resisting Moment</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtResisting2">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtResistingComp2">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtResistingAns2">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">@Bending Moment Capacity</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtBending2">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtBendingComp2">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtBendingAns2">
+                                </div>
+                              </div>
+                            </div>
                           </div>
                           <div class="col">
                             <div class="row">
@@ -743,6 +815,42 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                                 </div>
                                 <div class="input-group mb-3">
                                   <input type="text" class="form-control" readonly id="AtWebAns3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">@Yielding</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtYielding3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">@Check Resisting Moment</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtResisting3">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtResistingComp3">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtResistingAns3">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col form-group">
+                                <label for="">@Bending Moment Capacity</label>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtBending3">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtBendingComp3">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtBendingAns3">
                                 </div>
                               </div>
                             </div>
@@ -805,13 +913,13 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
       // Solving M
       var BLengthEx = Math.pow(BLength, 2);
       var BM = (BWu * BLengthEx) / 8;
-      var new_Bm = BM.toFixed(2);
+      var new_Bm = BM.toFixed(3);
       $('#BM').val(new_Bm);
 
       // Solving Fb
       var BFy = $('#BFy').val();
       var BFb = 0.60 * BFy;
-      var new_BFb = BFb.toFixed(2);
+      var new_BFb = BFb.toFixed(3);
 
       $('#BFb').val(new_BFb);
 
@@ -839,18 +947,18 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
         dataType: 'json',
         success: function (result) {
           // Fetching EDI
-          for(i=0; i<3; i++){
-            $('#BEdi'+(i+1)).val(result[i]["EDI_Std_Nomenclature"]);
-            $('#Bd'+(i+1)).val(result[i]["d"]);
-            $('#Btw'+(i+1)).val(result[i]["tw"]);
-            $('#Bbf'+(i+1)).val(result[i]["bf"]);
-            $('#Btf'+(i+1)).val(result[i]["tf"]);
-            $('#BTsx'+(i+1)).val(result[i]["Sx"]);
-            $('#Bk1'+(i+1)).val(result[i]["k1"]);
-            $('#Bzx'+(i+1)).val(result[i]["Zx"]);
-            $('#Bry'+(i+1)).val(result[i]["ry"]);
-            $('#Bj'+(i+1)).val(result[i]["j"]);
-            $('#Biy'+(i+1)).val(result[i]["iy"]);
+          for (i = 0; i < 3; i++) {
+            $('#BEdi' + (i + 1)).val(result[i]["EDI_Std_Nomenclature"]);
+            $('#Bd' + (i + 1)).val(result[i]["d"]);
+            $('#Btw' + (i + 1)).val(result[i]["tw"]);
+            $('#Bbf' + (i + 1)).val(result[i]["bf"]);
+            $('#Btf' + (i + 1)).val(result[i]["tf"]);
+            $('#BTsx' + (i + 1)).val(result[i]["Sx"]);
+            $('#Bk1' + (i + 1)).val(result[i]["k1"]);
+            $('#Bzx' + (i + 1)).val(result[i]["Zx"]);
+            $('#Bry' + (i + 1)).val(result[i]["ry"]);
+            $('#Bj' + (i + 1)).val(result[i]["j"]);
+            $('#Biy' + (i + 1)).val(result[i]["iy"]);
           }
 
           var BFy = $('#BFy').val();
@@ -869,53 +977,89 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
           var LambWebR1 = 5.70 * (Math.sqrt(200000 / BFy));
           $('#LambWebR1').val(LambWebR1.toFixed(3));
 
-          // AtFlange
-          // AtFlangeComp
-          // AtFlangeAns
-          // AtWeb
-          // AtWebComp
-          // AtWebAns
-
-          // Flange Analysis
+          // Analysis of Contact
           var Tbf = [];
           var Ttf = [];
           var Ttw = [];
           var Td = [];
           var Tk = [];
+          var Tzx = [];
+          var Ttsx = [];
           var atFlange = [];
           var AtWeb = [];
+          var AtYielding = [];
+          var AtResisting = [];
+          var AtBending = [];
 
-          for(var i=0; i < 3;  i++){
+          for (var i = 0; i < 3; i++) {
             Tbf[i] = result[i]["bf"];
             Ttf[i] = result[i]["tf"];
             Ttw[i] = result[i]["tw"];
             Td[i] = result[i]["d"];
             Tk[i] = result[i]["k1"];
+            Tzx[i] = result[i]["Zx"];
+            Ttsx[i] = result[i]["Sx"];
 
+
+            // Flange Analysis
             atFlange[i] = Tbf[i] / (2 * Ttf[i]);
 
-            $('#AtFlange'+ (i+1)).val(atFlange[i].toFixed(3));
-            $('#AtFlangeComp'+ (i+1)).val(atFlange[i].toFixed(3)+ " < " +LambFlangeP1.toFixed(3));
+            $('#AtFlange' + (i + 1)).val(atFlange[i].toFixed(3));
+            $('#AtFlangeComp' + (i + 1)).val(atFlange[i].toFixed(3) + " < " + LambFlangeP1.toFixed(3));
 
-            if(atFlange[i].toFixed(3) < LambFlangeP1.toFixed(3)){
-              $('#AtFlangeAns'+ (i+1)).val("COMPACT").removeClass('bg-danger text-light border border-secondary').addClass('bg-success text-light border border-secondary');
-            } else{
-              $('#AtFlangeAns'+ (i+1)).val("NON-COMPACT").removeClass('bg-success text-light border border-secondary').addClass('bg-danger text-light border border-secondary');
+            if (atFlange[i].toFixed(3) < LambFlangeP1.toFixed(3)) {
+              $('#AtFlangeAns' + (i + 1)).val("COMPACT").removeClass('bg-danger text-light border border-secondary').addClass('bg-success text-light border border-secondary');
+            } else {
+              $('#AtFlangeAns' + (i + 1)).val("NON-COMPACT").removeClass('bg-success text-light border border-secondary').addClass('bg-danger text-light border border-secondary');
             }
-            
+
             // Web Analysis
             AtWeb[i] = (Td[i] - 2 * (Tk[i])) / Ttw[i];
-            $('#AtWeb'+ (i+1)).val(AtWeb[i].toFixed(3))
-            $('#AtWebComp'+ (i+1)).val(AtWeb[i].toFixed(3)+ " < " +LambWebP1.toFixed(3))
+            $('#AtWeb' + (i + 1)).val(AtWeb[i].toFixed(3))
+            $('#AtWebComp' + (i + 1)).val(AtWeb[i].toFixed(3) + " < " + LambWebP1.toFixed(3))
 
-            if(AtWeb[i].toFixed(3) < LambWebP1.toFixed(3)){
-              $('#AtWebAns'+ (i+1)).val("COMPACT").removeClass('bg-danger text-light border border-secondary').addClass('bg-success text-light border border-secondary');
-            } else{
-              $('#AtWebAns'+ (i+1)).val("NON-COMPACT").removeClass('bg-success text-light border border-secondary').addClass('bg-danger text-light border border-secondary');
+            if (AtWeb[i].toFixed(3) < LambWebP1.toFixed(3)) {
+              $('#AtWebAns' + (i + 1)).val("COMPACT").removeClass('bg-danger text-light border border-secondary').addClass('bg-success text-light border border-secondary');
+            } else {
+              $('#AtWebAns' + (i + 1)).val("NON-COMPACT").removeClass('bg-success text-light border border-secondary').addClass('bg-danger text-light border border-secondary');
+            }
+
+            // AtYielding
+            // AtResisting
+            // AtResistingComp
+            // AtResistingAns
+            // AtBending
+            // AtBendingComp
+            // AtBendingAns
+
+            // Yielding
+            AtYielding[i] = (BFy * (Tzx[i] * (Math.pow(10, 3)))) / 1000000;
+            $('#AtYielding' + (i + 1)).val(AtYielding[i].toFixed(3));
+
+            // Check Resisting Moment
+            AtResisting[i] = (Ttsx[i] * 1000) * (BFy * 0.66) / 1000000;
+            $('#AtResisting' + (i + 1)).val(AtResisting[i].toFixed(3));
+            $('#AtResistingComp' + (i + 1)).val(AtResisting[i].toFixed(3) + " > " + $('#BM').val());
+
+            if (AtResisting[i].toFixed(3) > $('#BM').val()) {
+              $('#AtResistingAns' + (i + 1)).val("SAFE").removeClass('bg-danger text-light border border-secondary').addClass('bg-success text-light border border-secondary');
+            } else {
+              $('#AtResistingAns' + (i + 1)).val("NOT-SAFE").removeClass('bg-success text-light border border-secondary').addClass('bg-danger text-light border border-secondary');
+            }
+
+            // Bending Moment Capacity
+            AtBending[i] = 0.90 * AtYielding[i].toFixed(3);
+            $('#AtBending' + (i + 1)).val(AtBending[i].toFixed(3));
+            $('#AtBendingComp' + (i + 1)).val(AtBending[i].toFixed(3) + " > " + $('#BM').val());
+
+            if (AtBending[i].toFixed(3) > $('#BM').val()) {
+              $('#AtBendingAns' + (i + 1)).val("SAFE").removeClass('bg-danger text-light border border-secondary').addClass('bg-success text-light border border-secondary');
+            } else {
+              $('#AtBendingAns' + (i + 1)).val("NOT-SAFE").removeClass('bg-success text-light border border-secondary').addClass('bg-danger text-light border border-secondary');
             }
           }
 
-         }
+        }
       });
     }
   </script>
