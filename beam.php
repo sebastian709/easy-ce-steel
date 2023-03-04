@@ -13,7 +13,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
   if ($locator == "searchBeam") {
     $BSx = $_POST['data'];
 
-    $sql = " SELECT * FROM
+    $sql = "SELECT * FROM
             (SELECT * FROM `beam_aisc` WHERE `Sx` > " . $BSx . " AND `Type` = 'w' ORDER BY `Sx` ASC LIMIT 4) b 
              ORDER BY `ID` ASC  LIMIT 3";
 
@@ -77,7 +77,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
             </li>
           </ul>
           <!-- ============================================================== -->
-          <!-- Right side toggle and nav items afdsa-->
+          <!-- Right side toggle and nav items -->
           <!-- ============================================================== -->
           <ul class="navbar-nav float-end">
             <!-- ============================================================== -->
@@ -126,11 +126,6 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
             <li class="sidebar-item">
               <a class="sidebar-link waves-effect waves-dark sidebar-link" href="beam.php" aria-expanded="false">
                 <img src="assets/images/icon/beam.png" alt="" class="px-2"><span class="hide-menu">Beam</span></a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="column.php" aria-expanded="false">
-                <img src="assets/images/icon/beam.png" alt="" class="px-2"><span class="hide-menu">Column</span>
-              </a>
             </li>
           </ul>
         </nav>
@@ -843,53 +838,20 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
         },
         dataType: 'json',
         success: function (result) {
-          console.log(result);
           // Fetching EDI
-
-          $('#BEdi1').val(result[0]["EDI_Std_Nomenclature"]);
-          $('#BEdi2').val(result[1]["EDI_Std_Nomenclature"]);
-          $('#BEdi3').val(result[2]["EDI_Std_Nomenclature"]);
-          // Bd1
-          $('#Bd1').val(result[0]["d"]);
-          $('#Bd2').val(result[1]["d"]);
-          $('#Bd3').val(result[2]["d"]);
-          // Btw1
-          $('#Btw1').val(result[0]["tw"]);
-          $('#Btw2').val(result[1]["tw"]);
-          $('#Btw3').val(result[2]["tw"]);
-          // Bbf1
-          $('#Bbf1').val(result[0]["bf"]);
-          $('#Bbf2').val(result[1]["bf"]);
-          $('#Bbf3').val(result[2]["bf"]);
-          // Btf1
-          $('#Btf1').val(result[0]["tf"]);
-          $('#Btf2').val(result[1]["tf"]);
-          $('#Btf3').val(result[2]["tf"]);
-          // BTsx1
-          $('#BTsx1').val(result[0]["Sx"]);
-          $('#BTsx2').val(result[1]["Sx"]);
-          $('#BTsx3').val(result[2]["Sx"]);
-          // Bk11
-          $('#Bk11').val(result[0]["k1"]);
-          $('#Bk12').val(result[1]["k1"]);
-          $('#Bk13').val(result[2]["k1"]);
-          // Bzx1
-          $('#Bzx1').val(result[0]["Zx"]);
-          $('#Bzx2').val(result[1]["Zx"]);
-          $('#Bzx3').val(result[2]["Zx"]);
-          // Bry1
-          $('#Bry1').val(result[0]["ry"]);
-          $('#Bry2').val(result[1]["ry"]);
-          $('#Bry3').val(result[2]["ry"]);
-          // Bj1
-          $('#Bj1').val(result[0]["j"]);
-          $('#Bj2').val(result[1]["j"]);
-          $('#Bj3').val(result[2]["j"]);
-          // Biy1
-          $('#Biy1').val(result[0]["iy"]);
-          $('#Biy2').val(result[1]["iy"]);
-          $('#Biy3').val(result[2]["iy"]);
-
+          for(i=0; i<3; i++){
+            $('#BEdi'+(i+1)).val(result[i]["EDI_Std_Nomenclature"]);
+            $('#Bd'+(i+1)).val(result[i]["d"]);
+            $('#Btw'+(i+1)).val(result[i]["tw"]);
+            $('#Bbf'+(i+1)).val(result[i]["bf"]);
+            $('#Btf'+(i+1)).val(result[i]["tf"]);
+            $('#BTsx'+(i+1)).val(result[i]["Sx"]);
+            $('#Bk1'+(i+1)).val(result[i]["k1"]);
+            $('#Bzx'+(i+1)).val(result[i]["Zx"]);
+            $('#Bry'+(i+1)).val(result[i]["ry"]);
+            $('#Bj'+(i+1)).val(result[i]["j"]);
+            $('#Biy'+(i+1)).val(result[i]["iy"]);
+          }
 
           var BFy = $('#BFy').val();
 
@@ -907,33 +869,53 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
           var LambWebR1 = 5.70 * (Math.sqrt(200000 / BFy));
           $('#LambWebR1').val(LambWebR1.toFixed(3));
 
-          // AtFlange1
-          // AtFlangeComp1
-          // AtFlangeAns1
-          // AtWeb1
-          // AtWebComp1
-          // AtWebAns1
+          // AtFlange
+          // AtFlangeComp
+          // AtFlangeAns
+          // AtWeb
+          // AtWebComp
+          // AtWebAns
 
           // Flange Analysis
           var Tbf = [];
           var Ttf = [];
+          var Ttw = [];
+          var Td = [];
+          var Tk = [];
           var atFlange = [];
+          var AtWeb = [];
+
           for(var i=0; i < 3;  i++){
             Tbf[i] = result[i]["bf"];
             Ttf[i] = result[i]["tf"];
+            Ttw[i] = result[i]["tw"];
+            Td[i] = result[i]["d"];
+            Tk[i] = result[i]["k1"];
 
             atFlange[i] = Tbf[i] / (2 * Ttf[i]);
-            console.log(atFlange[i]);
 
             $('#AtFlange'+ (i+1)).val(atFlange[i].toFixed(3));
-          }
-         
-          
+            $('#AtFlangeComp'+ (i+1)).val(atFlange[i].toFixed(3)+ " < " +LambFlangeP1.toFixed(3));
 
-          
-          
-          
-        }
+            if(atFlange[i].toFixed(3) < LambFlangeP1.toFixed(3)){
+              $('#AtFlangeAns'+ (i+1)).val("COMPACT").removeClass('bg-danger text-light border border-secondary').addClass('bg-success text-light border border-secondary');
+            } else{
+              $('#AtFlangeAns'+ (i+1)).val("NON-COMPACT").removeClass('bg-success text-light border border-secondary').addClass('bg-danger text-light border border-secondary');
+            }
+            
+            // Web Analysis
+            AtWeb[i] = (Td[i] - 2 * (Tk[i])) / Ttw[i];
+            $('#AtWeb'+ (i+1)).val(AtWeb[i].toFixed(3))
+            $('#AtWebComp'+ (i+1)).val(AtWeb[i].toFixed(3)+ " < " +LambWebP1.toFixed(3))
+
+            if(AtWeb[i].toFixed(3) < LambWebP1.toFixed(3)){
+              $('#AtWebAns'+ (i+1)).val("COMPACT").removeClass('bg-danger text-light border border-secondary').addClass('bg-success text-light border border-secondary');
+            } else{
+              $('#AtWebAns'+ (i+1)).val("NON-COMPACT").removeClass('bg-success text-light border border-secondary').addClass('bg-danger text-light border border-secondary');
+            }
+          }
+
+         }
       });
     }
   </script>
