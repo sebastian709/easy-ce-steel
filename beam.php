@@ -127,6 +127,11 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
               <a class="sidebar-link waves-effect waves-dark sidebar-link" href="beam.php" aria-expanded="false">
                 <img src="assets/images/icon/beam.png" alt="" class="px-2"><span class="hide-menu">Beam</span></a>
             </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="column.php" aria-expanded="false">
+                <img src="assets/images/icon/beam.png" alt="" class="px-2"><span class="hide-menu">Column</span>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- End Sidebar navigation -->
