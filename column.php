@@ -121,7 +121,8 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link waves-effect waves-dark sidebar-link" href="beam.php" aria-expanded="false">
-                <img src="assets/images/icon/beam.png" alt="" class="px-2"><span class="hide-menu">Beam</span></a>
+                <img src="assets/images/icon/beam.png" alt="" class="px-2"><span class="hide-menu">Beam</span>
+              </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link waves-effect waves-dark sidebar-link" href="column.php" aria-expanded="false">
@@ -139,13 +140,13 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
       <div class="page-breadcrumb">
         <div class="row">
           <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title">Beam</h4>
+            <h4 class="page-title">Column</h4>
             <div class="ms-auto text-end">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    Beam
+                    Column
                   </li>
                 </ol>
               </nav>
