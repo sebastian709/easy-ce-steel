@@ -82,7 +82,7 @@
     </header>
     <aside class="left-sidebar" data-sidebarbg="skin5">
       <div class="scroll-sidebar">
-        <!-- Sidebar navigation-->
+        <!-- Sidebar navigation Test-->
         <nav class="sidebar-nav">
           <ul id="sidebarnav" class="pt-4">
             <li class="sidebar-item">
