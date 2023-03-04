@@ -13,7 +13,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
   if ($locator == "searchBeam") {
     $BSx = $_POST['data'];
 
-    $sql = " SELECT * FROM
+    $sql = "SELECT * FROM
             (SELECT * FROM `beam_aisc` WHERE `Sx` > " . $BSx . " AND `Type` = 'w' ORDER BY `Sx` ASC LIMIT 4) b 
              ORDER BY `ID` ASC  LIMIT 3";
 
@@ -77,7 +77,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
             </li>
           </ul>
           <!-- ============================================================== -->
-          <!-- Right side toggle and nav items afdsa-->
+          <!-- Right side toggle and nav items -->
           <!-- ============================================================== -->
           <ul class="navbar-nav float-end">
             <!-- ============================================================== -->
@@ -126,11 +126,6 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
             <li class="sidebar-item">
               <a class="sidebar-link waves-effect waves-dark sidebar-link" href="beam.php" aria-expanded="false">
                 <img src="assets/images/icon/beam.png" alt="" class="px-2"><span class="hide-menu">Beam</span></a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="column.php" aria-expanded="false">
-                <img src="assets/images/icon/beam.png" alt="" class="px-2"><span class="hide-menu">Column</span>
-              </a>
             </li>
           </ul>
         </nav>
@@ -907,12 +902,12 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
           var LambWebR1 = 5.70 * (Math.sqrt(200000 / BFy));
           $('#LambWebR1').val(LambWebR1.toFixed(3));
 
-          // AtFlange1
-          // AtFlangeComp1
-          // AtFlangeAns1
-          // AtWeb1
-          // AtWebComp1
-          // AtWebAns1
+          // AtFlange
+          // AtFlangeComp
+          // AtFlangeAns
+          // AtWeb
+          // AtWebComp
+          // AtWebAns
 
           // Flange Analysis
           var Tbf = [];
@@ -926,6 +921,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
             console.log(atFlange[i]);
 
             $('#AtFlange'+ (i+1)).val(atFlange[i].toFixed(3));
+
           }
          
           
