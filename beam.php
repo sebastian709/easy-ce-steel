@@ -576,7 +576,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                     <h2 class="accordion-header" id="heading3">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                        Trial Section Solution
+                        Width Thickness ratio for Flange
                       </button>
                     </h2>
                     <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
@@ -627,46 +627,52 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                               </div>
                             </div>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item border-0">
+                    <h2 class="accordion-header" id="heading4">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                        Analysis of Compactness
+                      </button>
+                    </h2>
+                    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
+                      data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <div class="row">
                           <div class="col">
                             <div class="row">
                               <div class="col">
-                                <h5 class="font-weight-light">For Flange:</h5>
+                                <h5>Trial Section A</h5>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col form-group">
-                                <label for="">λp</label>
+                                <label for="">@Flange</label>
                                 <div class="input-group mb-3">
-                                  <input type="text" class="form-control" readonly id="LambFlangeP2">
+                                  <input type="text" class="form-control" readonly id="AtFlange1">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtFlangeComp1">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtFlangeAns1">
                                 </div>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col form-group">
-                                <label for="">λr</label>
+                                <label for="">@Web</label>
                                 <div class="input-group mb-3">
-                                  <input type="text" class="form-control" readonly id="LambFlangeR2">
+                                  <input type="text" class="form-control" readonly id="AtWeb1">
                                 </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col">
-                                <h5 class="font-weight-light">For Web:</h5>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col form-group">
-                                <label for="">λp</label>
                                 <div class="input-group mb-3">
-                                  <input type="text" class="form-control" readonly id="LambWebP2">
+                                  <input type="text" class="form-control" readonly id="AtWebComp1">
                                 </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col form-group">
-                                <label for="">λr</label>
                                 <div class="input-group mb-3">
-                                  <input type="text" class="form-control" readonly id="LambWebR2">
+                                  <input type="text" class="form-control" readonly id="AtWebAns1">
                                 </div>
                               </div>
                             </div>
@@ -674,43 +680,69 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                           <div class="col">
                             <div class="row">
                               <div class="col">
-                                <h5 class="font-weight-light">For Flange:</h5>
+                                <h5>Trial Section B</h5>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col form-group">
-                                <label for="">λp</label>
+                                <label for="">@Flange</label>
                                 <div class="input-group mb-3">
-                                  <input type="text" class="form-control" readonly id="LambFlangeP3">
+                                  <input type="text" class="form-control" readonly id="AtFlange2">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtFlangeComp2">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtFlangeAns2">
                                 </div>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col form-group">
-                                <label for="">λr</label>
+                                <label for="">@Web</label>
                                 <div class="input-group mb-3">
-                                  <input type="text" class="form-control" readonly id="LambFlangeR3">
+                                  <input type="text" class="form-control" readonly id="AtWeb2">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtWebComp2">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtWebAns2">
                                 </div>
                               </div>
                             </div>
+                          </div>
+                          <div class="col">
                             <div class="row">
                               <div class="col">
-                                <h5 class="font-weight-light">For Web:</h5>
+                                <h5>Trial Section C</h5>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col form-group">
-                                <label for="">λp</label>
+                                <label for="">@Flange</label>
                                 <div class="input-group mb-3">
-                                  <input type="text" class="form-control" readonly id="LambWebP3">
+                                  <input type="text" class="form-control" readonly id="AtFlange3">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtFlangeComp3">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtFlangeAns3">
                                 </div>
                               </div>
                             </div>
                             <div class="row">
                               <div class="col form-group">
-                                <label for="">λr</label>
+                                <label for="">@Web</label>
                                 <div class="input-group mb-3">
-                                  <input type="text" class="form-control" readonly id="LambWebR3">
+                                  <input type="text" class="form-control" readonly id="AtWeb3">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtWebComp3">
+                                </div>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" readonly id="AtWebAns3">
                                 </div>
                               </div>
                             </div>
@@ -854,10 +886,48 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
           $('#Biy3').val(result[2]["iy"]);
 
 
-          // LambFlangeP1
-          // LambFlangeR1
-          // LambWebP1
-          // LambWebR1
+          var BFy = $('#BFy').val();
+
+          // For Flange
+          var LambFlangeP1 = 0.38 * (Math.sqrt(200000 / BFy));
+          $('#LambFlangeP1').val(LambFlangeP1.toFixed(3));
+
+          var LambFlangeR1 = 1.0 * (Math.sqrt(200000 / BFy));
+          $('#LambFlangeR1').val(LambFlangeR1.toFixed(3));
+
+          // For Web
+          var LambWebP1 = 3.76 * (Math.sqrt(200000 / BFy));
+          $('#LambWebP1').val(LambWebP1.toFixed(3));
+
+          var LambWebR1 = 5.70 * (Math.sqrt(200000 / BFy));
+          $('#LambWebR1').val(LambWebR1.toFixed(3));
+
+          // AtFlange1
+          // AtFlangeComp1
+          // AtFlangeAns1
+          // AtWeb1
+          // AtWebComp1
+          // AtWebAns1
+
+          // Flange Analysis
+          var Tbf = [];
+          var Ttf = [];
+          var atFlange = [];
+          for(var i=0; i < 3;  i++){
+            Tbf[i] = result[i]["bf"];
+            Ttf[i] = result[i]["tf"];
+
+            atFlange[i] = Tbf[i] / (2 * Ttf[i]);
+            console.log(atFlange[i]);
+
+            $('#AtFlange'+ (i+1)).val(atFlange[i].toFixed(3));
+          }
+         
+          
+
+          
+          
+          
         }
       });
     }
