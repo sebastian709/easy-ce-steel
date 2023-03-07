@@ -159,6 +159,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
             <div class="row">
               <div class="col-lg-12">
                 <h3 class="mt-3 ps-4 mt-5 mb-3">Title</h3>
+                <button type="button" id="LocalStorage">Test local storage</button>
               </div>
             </div>
             <div class="row">
@@ -872,6 +873,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
         © 2023 — <b>Easy CE-Steel</b>
       </footer>
     </div>
+    <input type="hidden" id="ind">
   </div>
   <script src="assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -890,6 +892,10 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
   <script src="dist/js/pages/chart/chart-page-init.js"></script>
 
   <script>
+
+
+
+
     var BSx;
     $('#BDL, #BLL, #BLength, #BFy').on('keyup', function () {
       BSx();
@@ -1024,14 +1030,6 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
               $('#AtWebAns' + (i + 1)).val("NON-COMPACT").removeClass('bg-success text-light border border-secondary').addClass('bg-danger text-light border border-secondary');
             }
 
-            // AtYielding
-            // AtResisting
-            // AtResistingComp
-            // AtResistingAns
-            // AtBending
-            // AtBendingComp
-            // AtBendingAns
-
             // Yielding
             AtYielding[i] = (BFy * (Tzx[i] * (Math.pow(10, 3)))) / 1000000;
             $('#AtYielding' + (i + 1)).val(AtYielding[i].toFixed(3));
@@ -1062,6 +1060,39 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
         }
       });
     }
+
+    
+
+    $('#LocalStorage').on('click', function () {
+      var data = localStorage.getItem("palette");
+      var parse = JSON.parse(data);
+      var array = $.map(parse, function (value, index) {
+        return [value];
+      });
+      console.log(array[0]);
+
+      const darkmode = {
+        info: "darkmode",
+        used: [
+          { name: "Black", color: "Angular" },
+          { name: "1st Light", color: "Angular" },
+          { name: "2nd Light", color: "Angular" },
+          { name: "3rd Light", color: "Angular" },
+        ],
+      };
+      const lightmode = {
+        info: "lightmode",
+        used: [
+          { name: "Black", color: "Angular" },
+          { name: "1st Light", color: "Angular" },
+          { name: "2nd Light", color: "Angular" },
+          { name: "3rd Light", color: "Angular" },
+        ],
+      };
+      localStorage.setItem("palette", JSON.stringify(darkmode));
+    });
+
+
   </script>
 
 </body>

@@ -153,6 +153,32 @@
   <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
   <script src="dist/js/pages/chart/chart-page-init.js"></script>
 
+  <script>
+    $(document).ready(function () {
+      
+      var data = localStorage.getItem("palette");
+      var parse = JSON.parse(data);
+      var array = $.map(parse, function (value, index) {
+        return [value];
+      });
+
+
+      if (data != null) {
+        console.log('OK!');
+      } else {
+        const lightmode = {
+          info: "lightmode",
+          used: [
+            { name: "Black", color: "Angular" },
+            { name: "1st Light", color: "Angular" },
+            { name: "2nd Light", color: "Angular" },
+            { name: "3rd Light", color: "Angular" },
+          ],
+        };
+        localStorage.setItem("palette", JSON.stringify(lightmode));
+      }
+    });
+  </script>
 
 </body>
 
