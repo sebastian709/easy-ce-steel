@@ -156,6 +156,7 @@
   <script>
     $(document).ready(function () {
       
+      
       var data = localStorage.getItem("palette");
       var parse = JSON.parse(data);
       var array = $.map(parse, function (value, index) {
@@ -178,7 +179,10 @@
         localStorage.setItem("palette", JSON.stringify(lightmode));
       }
     });
+
+
   </script>
+
 
 </body>
 
