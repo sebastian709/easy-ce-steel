@@ -215,19 +215,19 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
               <div class="col-lg-6">
                 <div class="row" style="border:1px solid #DEE2E6; border-radius: 5px 5px 0px 0px;">
                   <div class="col-12" style="border-bottom:1px solid #DEE2E6;">
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-tabs pt-2">
                       <li class="nav-item">
                         <a class="nav-link text-dark active" href="#" id="bvisuals">Visuals</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link text-dark" href="#" id="bother">Other Results</a>
                       </li>
-                      <li class="nav-item">
+                      <!-- <li class="nav-item">
                         <a class="nav-link text-dark" href="#">Link</a>
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
-                  <div class="col-12 bg-light" style="min-height:500px;">
+                  <div class="col-12 bg-light py-2" style="min-height:500px;">
                     <div class="row">
                       <!-- Visuals Tab -->
                       <div class="col-12" id="visuals">
