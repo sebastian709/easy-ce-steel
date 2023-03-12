@@ -165,7 +165,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-10 form-group ps-5">
+                  <div class="col-lg-10 form-group ps-lg-5">
                     <label for="">Dead Load:</label>
                     <div class="input-group mb-3">
                       <input type="number" class="form-control" id="BDL">
@@ -174,7 +174,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-10 form-group ps-5">
+                  <div class="col-lg-10 form-group ps-lg-5">
                     <label for="">Live Load:</label>
                     <div class="input-group mb-3">
                       <input type="number" class="form-control" id="BLL">
@@ -183,7 +183,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-10 form-group ps-5">
+                  <div class="col-lg-10 form-group ps-lg-5">
                     <label for="">Length:</label>
                     <div class="input-group mb-3">
                       <input type="number" class="form-control" id="BLength">
@@ -192,7 +192,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-10 form-group ps-5">
+                  <div class="col-lg-10 form-group ps-lg-5">
                     <label for="">Fy:</label>
                     <div class="input-group mb-3">
                       <input type="number" class="form-control" id="BFy">
@@ -201,7 +201,7 @@ if (isset($_POST['AJAXLocator']) || isset($_GET['AJAXLocator'])) {
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-10 form-group ps-5">
+                  <div class="col-lg-10 form-group ps-lg-5">
                     <label for="">Final result</label>
                     <div class="input-group mb-3">
                       <select name="" id="" class="form-control">
